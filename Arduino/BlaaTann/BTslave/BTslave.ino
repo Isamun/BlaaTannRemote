@@ -1,6 +1,6 @@
 #include <SoftwareSerial.h> //Software Serial Port
-#define RxD 6
-#define TxD 7
+#define RxD 4
+#define TxD 5
  
 SoftwareSerial blueToothSerial(RxD,TxD);
  
