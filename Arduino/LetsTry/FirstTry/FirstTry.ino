@@ -151,17 +151,15 @@ int lastButtonState;
 
 void loop() {
   
-   char recvChar;
-   while(1){
-     if(blueToothSerial.available()){//check if there's any data sent from the remote bluetooth shield
-       recvChar = blueToothSerial.read();
-       Serial.print(recvChar);
+char recvChar;
+    if (blueToothSerial.available()){
+    recvChar = blueToothSerial.read();
      }
+     
      if(Serial.available()){//check if there's any data sent from the local serial terminal, you can add the other applications here
        recvChar = Serial.read();
        blueToothSerial.print(recvChar);
      }
-   }
   // If button pressed, send the code.
   int buttonState = digitalRead(BUTTON_PIN);
   if (lastButtonState == HIGH && buttonState == LOW) {
