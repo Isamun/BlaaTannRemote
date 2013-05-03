@@ -4,30 +4,33 @@ import android.app.Activity;
 import android.bluetooth.*;
 import android.content.Intent;
 import android.os.*;
+import android.util.Log;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Set;
 import java.util.UUID;
 
-public class BlåTann extends Thread{
+public class BlaaTann extends Thread{
 	private MainActivity ref;
-	private BluetoothAdapter mmBluetoothAdapter;
-	private BluetoothDevice mmDevice;
-	private BluetoothSocket mmSocket;
-	private OutputStream mmOutputStream;
+	private BluetoothAdapter mmBluetoothAdapter;	//Local Bluetooth radio
+	private BluetoothDevice mmDevice;				//Device connected to radio
+	private BluetoothSocket mmSocket;				//Socket between local radio and device
+	private OutputStream mmOutputStream;			//Stream out to device
 	
-	public BlåTann(MainActivity ref){
+	public BlaaTann(MainActivity ref){
 		this.ref = ref;
 	}
 	
 	@Override
 	public void run(){
 		
-		mmBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+		mmBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();	//Sets local BT settings to Bluetoothadapter
+		
 		
 		if(!mmBluetoothAdapter.isEnabled()){
-			Intent enableBluetooth = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+			ref.enableBT();
+			
 		}//ENDIF
 		Set<BluetoothDevice>pairedDevices = mmBluetoothAdapter.getBondedDevices();
 		
@@ -39,7 +42,7 @@ public class BlåTann extends Thread{
 				}//ENDIF
 			}//ENDFOR
 		}//ENDPAIR
-		UUID uuid= UUID.fromString("00001101-0000-1000-8000-00805f9bd34fb");//Std serial BT interface;
+		UUID uuid = UUID.fromString("00001101-0000-1000-8000-0018a1121275");//Std serial BT interface;
 		
 		try{
 			mmSocket = mmDevice.createRfcommSocketToServiceRecord(uuid);
@@ -47,11 +50,11 @@ public class BlåTann extends Thread{
 			mmOutputStream = mmSocket.getOutputStream();
 			String msg = "connected";
 			mmOutputStream.write(msg.getBytes());
+			
 		}catch(IOException e){
 			e.printStackTrace();
 		}
-		 ref.actionMan();
-	
 
-}
+	}
+	
 }
