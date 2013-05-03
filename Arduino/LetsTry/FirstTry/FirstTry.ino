@@ -154,6 +154,7 @@ void loop() {
 char recvChar;
     if (blueToothSerial.available()){
     recvChar = blueToothSerial.read();
+    Serial.print(recvChar);
      }
      
      if(Serial.available()){//check if there's any data sent from the local serial terminal, you can add the other applications here
