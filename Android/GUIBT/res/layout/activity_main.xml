@@ -1,0 +1,113 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity"
+    android:background="@drawable/black" >
+
+    <FrameLayout
+        android:id="@+id/frameLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+    >
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/source"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/source" />
+
+    <Button
+        android:id="@+id/power"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/frameLayout1"
+        android:layout_toRightOf="@+id/frameLayout1"
+        android:background="@drawable/power" />
+
+    <Button
+        android:id="@+id/volumeDown"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/Volume"
+        android:layout_below="@+id/Volume"
+        android:background="@drawable/down" />
+
+    <TextView
+        android:id="@+id/Channel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/channelUp"
+        android:layout_below="@+id/channelUp"
+        android:gravity="left"
+        android:text="Channel"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/volumeUp"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/power"
+        android:layout_below="@+id/source"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/up" />
+
+    <TextView
+        android:id="@+id/Volume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/Channel"
+        android:layout_alignBottom="@+id/Channel"
+        android:layout_alignRight="@+id/volumeUp"
+        android:gravity="left"
+        android:text="Volume"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/channelUp"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/volumeUp"
+        android:layout_alignBottom="@+id/volumeUp"
+        android:layout_alignRight="@+id/source"
+        android:layout_marginRight="27dp"
+        android:background="@drawable/up" />
+
+    <Button
+        android:id="@+id/channelDown"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Channel"
+        android:layout_below="@+id/Channel"
+        android:background="@drawable/down" />
+
+    <CheckBox
+        android:id="@+id/connected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textColor="@color/white"
+        android:textStyle="italic"
+        android:textSize="50sp"
+        android:text="Connected" />
+
+</RelativeLayout>
